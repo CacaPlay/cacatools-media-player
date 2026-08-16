@@ -16,7 +16,7 @@ tauri-build = { version = "2", features = [] }
 [dependencies]
 tauri = { version = "2", features = ["protocol-asset"] }
 tauri-runtime = "2"
-rfd = "0.16"
+rfd = "0.17"
 tauri-plugin-single-instance = "2.4.3"
 
 [profile.release]
