@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest an improvement for local playback
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Explain the use case and the expected behavior.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This request keeps CMP local-first and independent of download services.
+          required: true
