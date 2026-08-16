@@ -1,0 +1,21 @@
+{
+  "name": "cacatools-media-player",
+  "version": "0.1.1",
+  "description": "Local multimedia player for Windows built with Tauri 2",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 4173 --bind 127.0.0.1 --directory src",
+    "build:web": "node scripts/build.mjs",
+    "tauri": "tauri",
+    "check": "node scripts/check.mjs",
+    "build": "npm run build:web && tauri build",
+    "build:portable": "npm run build:web && tauri build --no-bundle",
+    "build:installer": "npm run build:web && tauri build --bundles nsis",
+    "build:store": "npm run build:web && tauri build --no-bundle && tauri bundle --config src-tauri/tauri.microsoftstore.conf.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tauri-apps/cli": "2.11.4"
+  }
+}

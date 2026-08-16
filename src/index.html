@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>CacaTools Media Player</title>
+  <link rel="icon" type="image/png" href="./cacatools-media-player-logo.png">
+  <link rel="stylesheet" href="./player.css">
+</head>
+<body>
+  <main class="player-shell" data-player-state="waiting" data-media-kind="video" data-player-source="local">
+    <header class="player-titlebar" data-tauri-drag-region>
+      <div class="player-drag-title" data-tauri-drag-region>
+        <img class="player-app-logo" src="./cacatools-media-player-logo.png" alt="">
+        <strong data-player-title>CacaTools Media Player</strong>
+      </div>
+      <div class="player-window-actions">
+        <button type="button" data-window-action="minimize" aria-label="Minimizar"><svg viewBox="0 0 20 20"><path d="M4 10.5h12"/></svg></button>
+        <button type="button" data-window-action="maximize" aria-label="Maximizar o restaurar"><svg viewBox="0 0 20 20"><rect x="5" y="5" width="10" height="10" rx="1"/></svg></button>
+        <button type="button" class="player-close" data-window-action="close" aria-label="Cerrar"><svg viewBox="0 0 20 20"><path d="m6 6 8 8m0-8-8 8"/></svg></button>
+      </div>
+    </header>
+
+    <section class="player-stage">
+      <section class="player-audio-card" data-audio-card hidden aria-label="Información de audio">
+        <img class="player-audio-artwork" data-audio-artwork src="./media-preview.svg" alt="">
+        <div class="player-audio-copy"><span data-audio-source>ARCHIVO LOCAL</span><strong data-audio-title>Contenido de audio</strong><p data-audio-subtitle>Preparando reproducción.</p></div>
+      </section>
+      <div class="player-media-wrap" data-media-dropzone>
+        <canvas class="player-backdrop-canvas" data-player-backdrop-canvas aria-hidden="true"></canvas>
+        <video class="player-media player-video" playsinline preload="metadata"></video>
+        <audio class="player-media player-audio" preload="metadata"></audio>
+        <div class="player-state-card" role="status" aria-live="polite">
+          <span class="player-state-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 6.8v10.4L17 12 8.5 6.8Z"/></svg></span>
+          <strong data-player-state-title>Abre un archivo multimedia</strong>
+          <p data-player-state-message>Arrastra uno o varios archivos aquí, o usa Ctrl+O.</p>
+          <button type="button" class="player-system-fallback" data-player-open>Elegir archivos</button>
+        </div>
+      </div>
+
+      <aside class="player-playlist-panel" data-player-playlist-panel aria-hidden="true" aria-label="Lista de reproducción">
+        <header><div><span>PLAYLIST</span><strong data-player-playlist-title>Lista local</strong><small data-player-playlist-summary>Sin elementos cargados</small></div><button type="button" data-player-playlist-close aria-label="Cerrar lista">×</button></header>
+        <div class="player-playlist-list" data-player-playlist-list></div>
+      </aside>
+
+      <aside class="player-popover player-compact-menu" data-player-compact-menu aria-hidden="true" aria-label="Controles adicionales">
+        <header><div><span>REPRODUCTOR</span><strong>Más controles</strong><small>Funciones compactas del reproductor.</small></div><button type="button" data-player-compact-close aria-label="Cerrar controles">×</button></header>
+        <div class="player-compact-menu-list">
+          <label class="compact-volume-control"><span class="compact-proxy-icon" data-compact-icon="mute"></span><span>Volumen</span><input class="compact-volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volumen"></label>
+          <button type="button" data-compact-proxy="repeat"><span class="compact-proxy-icon" data-compact-icon="repeat"></span><span>Repetir</span></button>
+          <button type="button" data-compact-proxy="open"><span class="compact-proxy-icon" data-compact-icon="open"></span><span>Abrir archivos</span></button>
+          <button type="button" data-compact-proxy="captions"><span class="compact-proxy-icon" data-compact-icon="captions"></span><span>Subtítulos</span></button>
+          <button type="button" data-compact-proxy="speed"><span class="compact-proxy-icon" data-compact-icon="speed"></span><span>Velocidad</span></button>
+          <button type="button" data-compact-proxy="playlist-list"><span class="compact-proxy-icon" data-compact-icon="playlist-list"></span><span>Lista</span></button>
+          <button type="button" data-compact-proxy="fullscreen"><span class="compact-proxy-icon" data-compact-icon="fullscreen"></span><span>Pantalla completa</span></button>
+          <button type="button" data-compact-proxy="info"><span class="compact-proxy-icon" data-compact-icon="info"></span><span>Detalles</span></button>
+        </div>
+      </aside>
+
+      <footer class="player-controls" aria-label="Controles del reproductor">
+        <div class="player-timeline-row"><span data-time="current">0:00</span><input class="player-timeline" type="range" min="0" max="1000" value="0" aria-label="Posición de reproducción"><span data-time="duration">0:00</span></div>
+        <div class="player-control-row">
+          <div class="player-primary-controls">
+            <button type="button" class="player-playlist-only" data-player-action="previous-track" aria-label="Elemento anterior" title="Anterior"></button>
+            <button type="button" data-player-action="back" aria-label="Retroceder 10 segundos" title="Retroceder 10 segundos"><img class="player-seek-icon" src="./menos-10-segundos.png" alt=""></button>
+            <button type="button" class="player-play" data-player-action="play" aria-label="Reproducir o pausar" title="Reproducir o pausar"></button>
+            <button type="button" data-player-action="forward" aria-label="Adelantar 10 segundos" title="Adelantar 10 segundos"><img class="player-seek-icon" src="./mas-10-segundos.png" alt=""></button>
+            <button type="button" class="player-playlist-only" data-player-action="next-track" aria-label="Siguiente elemento" title="Siguiente"></button>
+          </div>
+          <div class="player-volume-controls"><button type="button" data-player-action="mute" aria-label="Silenciar"></button><div class="player-volume-popover"><input class="player-volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volumen"></div></div>
+          <div class="player-secondary-controls">
+            <button type="button" data-player-action="repeat" aria-label="Repetir desactivado" aria-pressed="false" title="Repetir indefinidamente"></button>
+            <button type="button" data-player-action="open" aria-label="Abrir archivos" title="Abrir archivos"></button>
+            <button type="button" data-player-action="captions" aria-label="Subtítulos" title="Cargar subtítulos"><span class="player-control-text player-cc">CC</span></button>
+            <button type="button" data-player-action="speed" aria-label="Velocidad de reproducción" title="Velocidad"><span class="player-control-text" data-player-speed>1.0x</span></button>
+            <button type="button" class="player-playlist-only" data-player-action="playlist-list" aria-label="Mostrar lista" aria-pressed="false" title="Lista de reproducción"></button>
+            <button type="button" data-player-action="info" aria-label="Mostrar detalles" aria-pressed="false" title="Ajustes y detalles"></button>
+            <button type="button" data-player-action="fullscreen" aria-label="Pantalla completa" title="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M8.5 4H4v4.5M15.5 4H20v4.5M8.5 20H4v-4.5M15.5 20H20v-4.5"/></svg></button>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+      <aside class="player-info" aria-hidden="true">
+        <header><div class="player-heading"><span data-player-detail-source>ARCHIVO LOCAL</span><h1 data-info-title>Sin archivo</h1><p data-info-subtitle>Los detalles aparecerán al cargar un medio.</p></div><button type="button" class="player-info-close" data-player-info-close aria-label="Cerrar detalles">×</button></header>
+        <div class="standalone-settings-grid"><button type="button" data-settings-view="details"><strong>Detalles</strong><small>Información técnica</small></button><button type="button" data-settings-view="captions"><strong>Subtítulos</strong><small>Archivo WebVTT</small></button><button type="button" data-settings-view="files"><strong>Archivos</strong><small>Abrir y organizar</small></button><button type="button" data-settings-view="tools"><strong>Herramientas</strong><small>Funciones futuras</small></button></div>
+        <div class="settings-quick-actions" aria-label="Controles adicionales"><button type="button" data-settings-proxy="repeat"><span class="settings-action-icon" data-settings-icon="repeat"></span><span><strong>Repetir</strong><small>Reproducción</small></span></button><button type="button" data-settings-proxy="speed"><span class="settings-action-icon" data-settings-icon="speed"></span><span><strong>Velocidad</strong><small data-settings-speed>1.0x</small></span></button><button type="button" data-settings-proxy="playlist-list"><span class="settings-action-icon" data-settings-icon="playlist-list"></span><span><strong>Lista</strong><small>Playlist</small></span></button></div>
+        <section class="standalone-settings-view" data-settings-panel="details"><dl class="player-technical"><div><dt>Contenedor</dt><dd data-tech="container">—</dd></div><div><dt>Resolución</dt><dd data-tech="resolution">—</dd></div><div><dt>Proporción</dt><dd data-tech="aspect">—</dd></div><div><dt>Duración</dt><dd data-tech="duration">—</dd></div><div><dt>Ubicación</dt><dd data-tech="location">—</dd></div></dl></section>
+      <section class="standalone-settings-view" data-settings-panel="captions" hidden><p class="settings-help">Carga un archivo .vtt para mostrar subtítulos locales.</p><button type="button" class="settings-action" data-player-caption-file>Cargar subtítulos</button><button type="button" class="settings-action" data-player-caption-off>Desactivar subtítulos</button></section>
+      <section class="standalone-settings-view" data-settings-panel="files" hidden><p class="settings-help">Abre varios archivos juntos para convertirlos en una sola lista de reproducción.</p><button type="button" class="settings-action" data-player-open>Abrir archivos</button></section>
+      <section class="standalone-settings-view" data-settings-panel="tools" hidden><p class="settings-help">Editor, conversión y ecualizador quedan reservados para una fase posterior.</p><button type="button" class="settings-action" disabled>Editor — próximamente</button></section>
+    </aside>
+    <div class="player-resize-handle player-resize-n" data-window-resize="north" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-ne" data-window-resize="northeast" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-e" data-window-resize="east" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-se" data-window-resize="southeast" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-s" data-window-resize="south" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-sw" data-window-resize="southwest" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-w" data-window-resize="west" aria-hidden="true"></div>
+    <div class="player-resize-handle player-resize-nw" data-window-resize="northwest" aria-hidden="true"></div>
+  </main>
+  <script type="module" src="./player.js"></script>
+</body>
+</html>
