@@ -6,16 +6,6 @@ Reproductor multimedia local para Windows, construido con Tauri 2, Rust, HTML, C
   <img src="src/cacatools-media-player-logo.png" alt="Logo de CacaTools Media Player" width="128">
 </p>
 
-## Vista previa
-
-<p align="center">
-  <img src="docs/assets/player-window.png" alt="Ventana principal de CacaTools Media Player" width="100%">
-</p>
-
-<p align="center">
-  <img src="docs/assets/playlist-window.png" alt="Lista de reproducción local de CacaTools Media Player" width="100%">
-</p>
-
 ## Alcance
 
 - Reproduce vídeo y audio desde archivos locales.
