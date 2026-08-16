@@ -1,9 +1,20 @@
-# CacaTools Media Player
+<table>
+  <tr>
+    <td width="132" valign="middle">
+      <img src="src/cacatools-media-player-logo.png" alt="Logo de CacaTools Media Player" width="112">
+    </td>
+    <td valign="middle">
+      <h1>CacaTools<br>Media Player</h1>
+    </td>
+  </tr>
+</table>
 
 Reproductor multimedia local para Windows, construido con Tauri 2, Rust, HTML, CSS y JavaScript.
 
+## Vista previa
+
 <p align="center">
-  <img src="src/cacatools-media-player-logo.png" alt="Logo de CacaTools Media Player" width="128">
+  <img src="docs/assets/cmp-promo.png" alt="Presentación de CacaTools Media Player" width="100%">
 </p>
 
 ## Alcance
