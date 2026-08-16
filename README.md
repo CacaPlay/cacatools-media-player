@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="docs/assets/cmp-brand-lockup.png" alt="CacaTools Media Player" width="620">
+  <img src="docs/assets/cmp-brand-lockup.png" alt="CacaTools Media Player" width="520">
 </p>
 
 Reproductor multimedia local para Windows, construido con Tauri 2, Rust, HTML, CSS y JavaScript.
