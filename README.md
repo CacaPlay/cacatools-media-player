@@ -2,8 +2,6 @@
   <img src="docs/assets/cmp-brand-lockup.png" alt="CacaTools Media Player" width="420">
 </p>
 
-Reproductor multimedia local para Windows, construido con Tauri 2, Rust, HTML, CSS y JavaScript.
-
 ## Vista previa
 
 <p align="center">
