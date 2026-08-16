@@ -66,7 +66,7 @@ La firma de Microsoft Store y la firma de una descarga distribuida por GitHub so
 
 CMP no inicia conexiones de red ni carga contenido remoto. El acceso a archivos se hace mediante los diálogos nativos de Windows, el arrastre local y el protocolo de assets de Tauri. Las capacidades nativas están limitadas a reproducción, selección de archivos y gestión de la ventana.
 
-Consulta [SECURITY.md](SECURITY.md) antes de reportar una vulnerabilidad y [CODE_SIGNING.md](CODE_SIGNING.md) para el proceso de firmas.
+Consulta [SECURITY.md](SECURITY.md) antes de reportar una vulnerabilidad, [CODE_SIGNING.md](CODE_SIGNING.md) para el proceso de firmas y [CHANGELOG.md](CHANGELOG.md) para el historial del proyecto.
 
 Free code signing provided by SignPath.io, certificate by SignPath Foundation.
 

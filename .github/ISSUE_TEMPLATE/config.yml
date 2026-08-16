@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/CacaPlay/cacatools-media-player/security/advisories/new
+    about: Report security issues privately through a GitHub Security Advisory.
+  - name: Discussions
+    url: https://github.com/CacaPlay/cacatools-media-player/discussions
+    about: Ask questions and discuss ideas before opening an issue.
